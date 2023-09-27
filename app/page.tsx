@@ -1,16 +1,17 @@
-// import { Button } from "@/components/ui";
-import { Button } from '@/base/components/ui/button';
-// import FetchGraphQL from "@/src/components/"
-
-const test = process.env.SPACE_ID;
-console.log('test:', test);
+import Link from 'next/link';
+// import { Button } from '@/base/components/ui/button';
 
 export default function Home() {
   return (
     <main>
-      <Button>Click me, please</Button>
-      <div>test in</div>
-      <div>try without ui library</div>
+      <h1>Home</h1>
+      {/* <Button>Click me, please</Button> */}
+      <Link
+        href="https://observablehq.com/@d3/zoom-to-bounding-box?collection=@d3/d3-zoom"
+        className="underline"
+      >
+        Zoom to bounding box
+      </Link>
     </main>
   );
 }

@@ -10,6 +10,10 @@ const menuItems = [
     text: 'Line Chart',
     link: '/00-line-chart',
   },
+  {
+    text: 'Free Code Camp',
+    link: '/fcc-data-viz',
+  },
 ];
 
 const NavBar = () => {
@@ -18,14 +22,13 @@ const NavBar = () => {
       <ul className="flex h-10 items-center space-x-4 text-sm">
         {menuItems.map((item, index) => {
           const { text, link } = item;
-
           return (
-            <>
-              <li className="p-10" key={index}>
-                <Link href={link}>{text}</Link>
-              </li>
-              <Separator orientation="vertical" />
-            </>
+            // <>
+            <li className="p-10" key={index}>
+              <Link href={link}>{text}</Link>
+            </li>
+            // <Separator orientation="vertical" />
+            // </>
           );
         })}
       </ul>

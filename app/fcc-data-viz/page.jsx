@@ -12,8 +12,8 @@ import weather_data from './weather_data.json';
 //   axisLeft,
 // } from 'd3';
 
-// const width = 960;
-// const height = 500;
+const width = 960;
+const height = 500;
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -27,6 +27,7 @@ export default function Home() {
     <main>
       <h1>Free Code Camp Data Viz</h1>
       <div>Data is {data ? 'loaded' : 'loading'}</div>
+      <svg width={width} height={height}></svg>
     </main>
   );
 }

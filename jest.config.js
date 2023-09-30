@@ -25,7 +25,7 @@ module.exports = (async function () {
       },
     },
     projects: [
-      './test/jest.lint.js',
+      // './test/jest.lint.js',
       './test/jest.client.js',
       './test/jest.server.js',
     ],

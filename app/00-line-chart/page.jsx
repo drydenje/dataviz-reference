@@ -29,6 +29,7 @@ const LineChart = () => {
   // refs
   const svgRef = useRef();
   console.log('LEN:', data.length);
+
   // draws chart
   useEffect(() => {
     const svg = select(svgRef.current);

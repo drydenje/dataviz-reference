@@ -23,11 +23,16 @@ export default function Home() {
     console.log('data:', data);
   }, [data]);
 
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <main>
       <h1>Free Code Camp Data Viz</h1>
-      <div>Data is {data ? 'loaded' : 'loading'}</div>
-      <svg width={width} height={height}></svg>
+      <svg width={width} height={height}>
+        <g transform={`translate(${centerX},${centerY})`}></g>
+      </svg>
     </main>
   );
 }

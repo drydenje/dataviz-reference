@@ -14,6 +14,10 @@ const menuItems = [
     text: 'Free Code Camp',
     link: '/fcc-data-viz',
   },
+  {
+    text: 'Tree Chart',
+    link: '/tree-chart',
+  },
 ];
 
 const NavBar = () => {

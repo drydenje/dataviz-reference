@@ -86,6 +86,14 @@ const drawTree = () => {
     .html((d) => d.data.name);
 };
 
+const zoomed = () => {
+  svg.attr('transform', d3.event.transform);
+};
+
+const zoom = d3.zoom().scaleExtent([0.1, 10]).on('zoom', zoomed);
+
+d3.select('treechart').call(zoom);
+
 const Page = () => {
   useEffect(() => {
     drawTree();

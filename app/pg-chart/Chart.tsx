@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { scaleTime, scaleLinear } from 'd3-scale';
+import { extent } from 'd3-array';
 import { Translate } from '@/src/svg/Translate';
 import { LeftAxis, BottomAxis } from '@/src/svg/Axis';
 
@@ -43,6 +44,18 @@ export const Chart = ({ data }) => {
     },
   };
 
+  // d3 scales map from your data domain to another domain (in this case, our chart size).
+  const xExtent = extent(data, (d) => d.date);
+  const yExtent = extent(data, (d) => d.temperatureHigh);
+  if (
+    xExtent[0] == null ||
+    xExtent[1] == null ||
+    yExtent[0] == null ||
+    yExtent[1] == null
+  ) {
+    return <div>insufficient data available</div>;
+  }
+
   const xScale = scaleTime().domain(xExtent).range([0, body.size.width]);
   const yScale = scaleLinear().domain(yExtent).range([body.size.height, 0]);
 
@@ -52,7 +65,7 @@ export const Chart = ({ data }) => {
       height="400"
       viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
     >
-      <Translate {...body.pos}>{/* chart body omitted */}</Translate>
+      <Translate {...body.pos}>chart body omitted</Translate>
       <Translate {...leftAxis.pos}>
         <LeftAxis scale={yScale} {...leftAxis.size} />
       </Translate>

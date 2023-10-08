@@ -3,8 +3,11 @@ import { scaleTime, scaleLinear } from 'd3-scale';
 import { extent } from 'd3-array';
 import { Translate } from '@/src/svg/Translate';
 import { LeftAxis, BottomAxis } from '@/src/svg/Axis';
+import { Datum, Pos, Layout } from '@/src/svg/utils';
 
-export const Chart = ({ data }) => {
+export const Chart: React.FC<{
+  data: Datum[];
+}> = ({ data }) => {
   const viewBoxWidth = 800;
   const viewBoxHeight = 400;
   const paddingX = 6;
@@ -13,7 +16,7 @@ export const Chart = ({ data }) => {
   const leftAxisWidth = 50;
   const bodyHeight = viewBoxHeight - bottomAxisHeight - 2 * paddingY;
   const bodyWidth = viewBoxWidth - leftAxisWidth - 2 * paddingX;
-  const leftAxis = {
+  const leftAxis: Layout = {
     pos: {
       x: paddingX,
       y: paddingY,
@@ -23,7 +26,7 @@ export const Chart = ({ data }) => {
       height: bodyHeight,
     },
   };
-  const bottomAxis = {
+  const bottomAxis: Layout = {
     pos: {
       x: paddingX + leftAxisWidth,
       y: paddingY + bodyHeight,
@@ -33,7 +36,7 @@ export const Chart = ({ data }) => {
       height: bottomAxisHeight,
     },
   };
-  const body = {
+  const body: Layout = {
     pos: {
       x: leftAxis.pos.x + leftAxisWidth,
       y: paddingY,
@@ -46,6 +49,7 @@ export const Chart = ({ data }) => {
 
   // d3 scales map from your data domain to another domain (in this case, our chart size).
   const xExtent = extent(data, (d) => d.date);
+  console.log('xExtent:', xExtent);
   const yExtent = extent(data, (d) => d.temperatureHigh);
   if (
     xExtent[0] == null ||

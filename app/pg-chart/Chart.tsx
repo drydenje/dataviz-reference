@@ -49,7 +49,7 @@ export const Chart: React.FC<{
 
   // d3 scales map from your data domain to another domain (in this case, our chart size).
   const xExtent = extent(data, (d) => d.date);
-  console.log('xExtent:', xExtent);
+  // console.log('xExtent:', xExtent);
   const yExtent = extent(data, (d) => d.temperatureHigh);
   if (
     xExtent[0] == null ||

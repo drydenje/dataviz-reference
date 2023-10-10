@@ -4,8 +4,10 @@ export type Size = {
 };
 
 export type Datum = {
-  x: number;
-  y: number;
+  // x: number;
+  // y: number;
+  date: Date;
+  temperatureHigh: number;
 };
 
 export type Pos = {
